@@ -1,6 +1,6 @@
 
-import numpy as np
 import copy
+import numpy as np
 
 from scipy.spatial.transform import Rotation
 from sklearn.neighbors import NearestNeighbors
@@ -12,10 +12,7 @@ class ICP:
     def __init__(self) -> None:
         self._viewer_handle: Viewer = Viewer()
 
-    def __del__(self) -> None:
-        self._viewer_handle.__del__()
-
-    def __call__(self, source_pcd: np.array, target_pcd: np.array) -> np.array:
+    def __call__(self, source_pcd: np.ndarray, target_pcd: np.ndarray) -> np.ndarray:
 
         source_init = copy.deepcopy(source_pcd)
 
