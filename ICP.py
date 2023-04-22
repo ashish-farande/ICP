@@ -47,8 +47,7 @@ class ICP:
         T = np.eye(4)
         orig_centroid = np.mean(source_pcd, axis=0)
         R = np.array(Rotation.random().as_matrix())
-        # t= np.random.rand(3,1)
-        t = np.zeros((3, 1))
+        t= np.random.rand(3,1)
         source_pcd = source_pcd @ R.T + t.T
 
         self._viewer_handle.add(source_pcd, target_pcd)

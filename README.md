@@ -1,5 +1,5 @@
 # ICP
-An implementation of ICP.
+An implementation of ICP using umeyama's algorithm.
 
 Results:
 
