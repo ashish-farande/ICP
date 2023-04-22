@@ -10,12 +10,12 @@ from Viewer import Viewer
 
 class ICP:
     def __init__(self) -> None:
-        self._viewer_handle = Viewer()
+        self._viewer_handle: Viewer = Viewer()
 
-    def __del__(self):
+    def __del__(self) -> None:
         self._viewer_handle.__del__()
 
-    def __call__(self, source_pcd, target_pcd):
+    def __call__(self, source_pcd: np.array, target_pcd: np.array) -> np.array:
 
         source_init = copy.deepcopy(source_pcd)
 

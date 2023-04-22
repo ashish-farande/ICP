@@ -11,16 +11,16 @@ class Viewer:
         self._vis.create_window()
         self._pcd = open3d.geometry.PointCloud()
 
-    def __del__(self):
+    def __del__(self) -> None:
         self._vis.destroy_window()
 
-    def add(self, source_pcd: np.array, target_pcd: np.array):
+    def add(self, source_pcd: np.ndarray, target_pcd: np.ndarray) -> None:
         tmp = np.hstack((source_pcd, target_pcd))
         pts = open3d.utility.Vector3dVector(tmp.reshape([-1, 3]))
         self._pcd.points = pts
         self._vis.add_geometry(self._pcd)
 
-    def update(self, source_pcd: np.array, target_pcd: np.array):
+    def update(self, source_pcd: np.ndarray, target_pcd: np.ndarray) -> None:
         tmp = np.hstack((source_pcd, target_pcd))
         pts = open3d.utility.Vector3dVector(tmp.reshape([-1, 3]))
         self._pcd.points = pts

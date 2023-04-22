@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 """Visualization utilies."""
 
 
-def show_points(points):
+def show_points(points: np.ndarray):
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
     ax.set_xlim3d([-2, 2])
@@ -14,7 +14,7 @@ def show_points(points):
     ax.scatter(points[:, 0], points[:, 2], points[:, 1])
 
 
-def compare_points(points1, points2):
+def compare_points(points1: np.ndarray, points2: np.ndarray):
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
     ax.set_xlim3d([-2, 2])
@@ -27,7 +27,7 @@ def compare_points(points1, points2):
 """Metric and visualization."""
 
 
-def compute_rre(R_est: np.ndarray, R_gt: np.ndarray):
+def compute_rre(R_est: np.ndarray, R_gt: np.ndarray) -> float:
     """Compute the relative rotation error (geodesic distance of rotation)."""
     assert R_est.shape == (
         3, 3), 'R_est: expected shape (3, 3), received shape {}.'.format(R_est.shape)
@@ -38,7 +38,7 @@ def compute_rre(R_est: np.ndarray, R_gt: np.ndarray):
     return rre
 
 
-def compute_rte(t_est: np.ndarray, t_gt: np.ndarray):
+def compute_rte(t_est: np.ndarray, t_gt: np.ndarray) -> float:
     assert t_est.shape == (
         3,), 't_est: expected shape (3,), received shape {}.'.format(t_est.shape)
     assert t_gt.shape == (
